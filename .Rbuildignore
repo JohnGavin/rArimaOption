@@ -9,6 +9,7 @@
 ^finance_cts_gbm_stoc_vol\.md$
 ^setup_pkg\.R$
 ^.*\.json$
+^\\.config/positron/
 
 ^misc\.json$
 ^esgtoolkit\.json$

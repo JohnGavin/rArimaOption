@@ -10,6 +10,29 @@ tar_option_set(
 
 list(
   # ============================================================================
+  # Infrastructure: Nix Environment Management
+  # ============================================================================
+  tar_target(
+    nix_env_update,
+    {
+      # Dependencies:
+      # - DESCRIPTION file
+      # - R/setup/maintain_env.R script
+      # - default.R script
+      file.mtime("DESCRIPTION") # Depend on DESCRIPTION modification time
+      file.mtime("R/setup/maintain_env.R") # Depend on script modification time
+      file.mtime("default.R") # Depend on script modification time
+
+      # Run the script to generate default.nix and packages.R
+      source("default.R")
+
+      # Return a value that indicates success or the content of default.nix
+      # This ensures targets recognizes it as a valid output
+      readLines("default.nix")
+    }
+  ),
+
+  # ============================================================================
   # Simulation Parameters
   # ============================================================================
   tar_target(n_sim, 250),           # Number of time steps
