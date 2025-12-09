@@ -31,12 +31,67 @@ list(
                      S0 = s0, mu = mu_p, sigma = sigma)),
   
   # Stochastic Volatility with Jump Diffusion
-  tar_target(svjd_paths,
+  tar_target(sim_svjd_data,
              sim_svjd(n = n_sim, r0 = mu_p)),
   
   # Heston Model (SVJD without jumps)
-  tar_target(heston_paths,
-             sim_heston(n = n_sim, r0 = mu_p)),
+  tar_target(sim_heston_data,
+              sim_heston(n = n_sim, r0 = mu_p)),
+              
+  tar_target(
+    plot_heston,
+    plot_simulations(sim_heston_data, "Heston Model Paths")
+  ),
+  
+  # --- Phase 2: Risk Neutralization & Pricing ---
+  
+  # 1. Simulate "Physical" History (1 path, 1 year)
+  tar_target(
+    physical_history,
+    {
+      # n = number of paths (must be > 1 for esgtoolkit)
+      # h = horizon in years (1)
+      paths <- sim_gbm(n = 2, h = 1, S0 = 100, mu = 0.08, sigma = 0.2)
+      as.numeric(paths[, 1]) # Take first path
+    }
+  ),
+  
+  # 2. Fit ARIMA to Physical History
+  tar_target(
+    arima_model,
+    fit_arima_returns(physical_history)
+  ),
+  
+  # 3. Generate Risk Neutral Paths for Pricing (at end of history)
+  tar_target(
+    rn_paths,
+    generate_risk_neutral_paths(
+      arima_model, 
+      n_paths = 1000, 
+      h = 63, # 3 months 
+      S0 = tail(physical_history, 1), 
+      r = 0.03, 
+      dt = 1/252
+    )
+  ),
+  
+  # 4. Price European Call Option (K=Strike relative to S0 observed)
+  tar_target(
+    option_price,
+    price_european_option(
+      rn_paths, 
+      K = 100, 
+      r = 0.03, 
+      maturity = 0.25, # 3 months in years
+      type = "call"
+    )
+  ),
+
+  # 5. Report
+  tar_quarto(
+    risk_neutral_report,
+    "vignettes/risk_neutral_pricing.qmd"
+  ),
 
   # ============================================================================
   # Verification / Plots

@@ -16,13 +16,16 @@
 - **Method**: Use `forecast::auto.arima` or `ahead` package.
 - **Function**: `extract_risk_premium(price_paths)`
     - Input: Time series of simulated prices (physical measure).
+    - Input: Time series of simulated prices (physical measure).
     - Logic: Fit ARIMA, extract residuals/drift.
+    - Specific Function: `fit_arima_increments(martingale_increments)`
 
 ## 3. Risk-Neutral Transformation
 - **Method**: Empirical Martingale Simulation / Residual Resampling.
 - **Function**: `transform_risk_neutral(physical_paths, risk_free_rate)`
     - Adjust drift to $r$.
     - Resample residuals to preserve distribution shape.
+    - Specific Function: `generate_risk_neutral_paths(arima_models, residuals, n_sim, S0, r, maturity)`
 
 ## 4. Option Pricing
 - **Function**: `price_option(risk_neutral_paths, strike, maturity, type = "call")`

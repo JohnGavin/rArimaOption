@@ -1,0 +1,62 @@
+---
+title: "Risk Neutral Pricing with ARIMA"
+format: html
+---
+
+```{r setup, include=FALSE}
+library(targets)
+library(ggplot2)
+# library(rArimaOption) # Package not installed yet
+devtools::load_all()
+tar_config_set(store = "../_targets") 
+```
+
+## Overview
+
+This vignette demonstrates the risk-neutral pricing workflow.
+
+1.  **Simulate Physical History**: We observe a stock price path.
+2.  **Fit ARIMA**: We fit a model to the log-returns.
+3.  **Risk-Neutralize**: We transform the residuals/drift to the risk-neutral measure ($r$).
+4.  **Price Option**: We value a European Call option.
+
+## 1. Physical History
+
+We simulated a 1-year daily history using Geometric Brownian Motion.
+
+```{r}
+#| label: load-artifacts
+history <- tar_read(physical_history)
+plot(history, type="l", main="Observed Physical History", ylab="Price")
+```
+
+## 2. ARIMA Model
+
+We fit an ARIMA model to the log-returns of this history.
+
+```{r}
+model <- tar_read(arima_model)
+print(model)
+checkresiduals(model)
+```
+
+## 3. Risk Neutral Paths
+
+We generated 1000 paths over 3 months using the fitted model and risk-free drift.
+
+```{r}
+rn_paths <- tar_read(rn_paths)
+plot_simulations(rn_paths, "Risk Neutral Paths (Forward Looking)")
+```
+
+## 4. Option Pricing
+
+European Call Option ($K=100$, $T=0.25$ years).
+
+```{r}
+price_res <- tar_read(option_price)
+print(price_res)
+```
+
+Estimated Price: **`r round(price_res$price, 2)`**
+confidence Interval: `r round(price_res$conf_int, 2)`
