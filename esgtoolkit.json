@@ -1,0 +1,14 @@
+{
+  "url": "https://github.com/Techtonique/esgtoolkit",
+  "rev": "0a9ad8ed1d52de4a66a997dc48e930aa49560a2b",
+  "date": "2025-12-01T10:01:44+01:00",
+  "path": "/nix/store/qcf2ahw3ljbqfhcqj8hfcdk69ci615z8-esgtoolkit",
+  "sha256": "14hi77029dx5dvbn2k562sha88ny1s81riry2ls907bg18yh00zj",
+  "hash": "sha256-8gMAPQpvHZA0FT7HHJAO3iKkoBamTGHXbqW3JMA5EZI=",
+  "fetchLFS": false,
+  "fetchSubmodules": false,
+  "deepClone": false,
+  "fetchTags": false,
+  "leaveDotGit": false,
+  "rootDir": ""
+}

@@ -1,0 +1,7 @@
+inst/doc
+.DS_Store
+.Rproj.user
+.Rhistory
+.RData
+.nix-profile
+result

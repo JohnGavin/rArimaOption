@@ -1,0 +1,88 @@
+---
+title: "Simulating Stock Price Paths"
+format: html
+vignette: >
+  %\VignetteIndexEntry{Simulating Stock Price Paths}
+  %\VignetteEngine{quarto::html}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r}
+#| include: false
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+# For development/vignette building without installation:
+if (file.exists("../R/simulate.R")) {
+    source("../R/simulate.R")
+} else {
+    library(rArimaOption)
+}
+library(esgtoolkit)
+library(ggplot2)
+```
+
+## Introduction
+
+This vignette demonstrates how to simulate stock price paths under three different models using `rArimaOption`:
+
+1. **Geometric Brownian Motion (GBM)**
+2. **Stochastic Volatility Jump Diffusion (SVJD)**
+3. **Heston Model** (SVJD without jumps)
+
+## Setup Parameters
+
+```{r}
+#| label: setup
+n_sim <- 250   # Number of time steps
+horizon <- 5   # Horizon in years
+frequency <- "daily"
+S0 <- 100      # Initial price
+mu_p <- 0.08   # Drift
+sigma <- 0.04  # Volatility (for GBM)
+```
+
+## 1. Geometric Brownian Motion (GBM)
+
+GBM is the standard model with constant volatility.
+
+```{r}
+#| label: gbm
+set.seed(123)
+gbm_paths <- sim_gbm(n = n_sim, h = horizon, frequency = frequency, 
+                     S0 = S0, mu = mu_p, sigma = sigma)
+
+# Plotting
+esgtoolkit::esgplotbands(gbm_paths, main = "GBM Paths")
+```
+
+## 2. Stochastic Volatility Jump Diffusion (SVJD)
+
+SVJD incorporates stochastic volatility and jumps.
+
+```{r}
+#| label: svjd
+set.seed(123)
+svjd_paths <- sim_svjd(n = n_sim, r0 = mu_p)
+
+# Plotting
+esgtoolkit::esgplotbands(svjd_paths, main = "SVJD Paths")
+```
+
+## 3. Heston Model
+
+Heston model is a special case of SVJD with no jumps.
+
+```{r}
+#| label: heston
+set.seed(123)
+heston_paths <- sim_heston(n = n_sim, r0 = mu_p)
+
+# Plotting
+esgtoolkit::esgplotbands(heston_paths, main = "Heston Paths")
+```
+
+## Conclusion
+
+We have successfully simulated price paths under three different physical measures.

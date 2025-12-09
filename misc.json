@@ -1,0 +1,14 @@
+{
+  "url": "https://github.com/thierrymoudiki/misc",
+  "rev": "6327354f0d4cce895031e59421ceb5fafed4c1a7",
+  "date": "2025-12-01T10:33:46+01:00",
+  "path": "/nix/store/z1j72cz6zygn1az6629h7v7rnxvdizlk-misc",
+  "sha256": "113cjnyw11wd9as459b8abg6yd27xd0fzr9r9vgw2wvv9l2zjygx",
+  "hash": "sha256-/Xn5BU17c8HfTjnl70DrRzRv3lJopUK0So2HwL2VbIQ=",
+  "fetchLFS": false,
+  "fetchSubmodules": false,
+  "deepClone": false,
+  "fetchTags": false,
+  "leaveDotGit": false,
+  "rootDir": ""
+}

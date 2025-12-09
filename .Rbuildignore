@@ -1,0 +1,15 @@
+^LICENSE\.md$
+^_targets\.R$
+^_targets$
+^default\.nix$
+^default\.sh$
+^PLAN\.md$
+^prompt\.md$
+^AGENTS\.md$
+^finance_cts_gbm_stoc_vol\.md$
+^setup_pkg\.R$
+^.*\.json$
+
+^misc\.json$
+^esgtoolkit\.json$
+^ahead\.json$

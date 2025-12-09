@@ -1,0 +1,14 @@
+{
+  "url": "https://github.com/Techtonique/ahead",
+  "rev": "290c76194890faa629de57a29e17a2dce95a9cbe",
+  "date": "2025-12-01T09:47:44+01:00",
+  "path": "/nix/store/93bmrmgkrzw2cgq232064lcm9h0q6cwg-ahead",
+  "sha256": "1zf747nfw9fddn1vshfysighkhkbvdkvprsn454s2axb5rpcpamx",
+  "hash": "sha256-varLbi6rK6FJIVbnu2fba8IJX9TeQb2Dbc0l7uwhx/0=",
+  "fetchLFS": false,
+  "fetchSubmodules": false,
+  "deepClone": false,
+  "fetchTags": false,
+  "leaveDotGit": false,
+  "rootDir": ""
+}
