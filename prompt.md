@@ -50,3 +50,10 @@ When running .github/workflows/*.yml files, default.nix should be used to create
 
  Remember to enforce reproducitility, so R scripts should be used for each task, as much as possible, with the documented scripts, stored in ./R/setup/, organised into suitably organised subfolders.
 e.g. a subfolder for each of the 9-steps in the workflow plan, or something similar.
+
+(remember to log major issues, lessons learnt into WIKI.md for now, and raise a GH issue to mignrate that .md file into the repo wiki once the GH repo and wiki are created.)
+
+Once all local tasks (e.g. test(), check(), tar_make()) are successful, create a GH repo to host the project, with a GH Pages website, and a wiki. 
+Use git or gh cli to create the repo, and wiki, but only if usethis, gh or gert R packages dont offer these commands.
+
+Update AGENTS.md to remind me what are the url for the GH repo and teh corresponding website, assuming you managed to update them successfully, when you report progress

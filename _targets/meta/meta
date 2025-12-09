@@ -1,10 +1,4 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
-sim_gbm|function|93223c1fc99f8f9b
-update.packages|function|30d2377eab38636a
-sim_svjd|function|b70bc6c9db86c117
-install.packages|function|e3b0a9d56d54eeba
-remove.packages|function|e5e5ba52f888863b
-sim_heston|function|091acdeec66d3c06
 horizon|stem|7314e55fde7aeeaa|3aecd493438d20d7|2c530c1562a7fbd1|1476506614||t20430.9748437477s|s51b|51|rds|local|vector|||0.63||
 s0|stem|aa0ce092fc069361|500d3f270534308b|2c530c1562a7fbd1|56392930||t20430.9748439047s|s51b|51|rds|local|vector|||0||
 mu_p|stem|cece7a62bb88f695|8e75d7d51ef3497b|2c530c1562a7fbd1|702922117||t20430.9748441745s|s55b|55|rds|local|vector|||0||
@@ -17,3 +11,21 @@ plot_gbm|stem|ad9c403dfb47a565|69b8085555e87bd7|2c530c1562a7fbd1|868568175||t204
 svjd_paths|stem|6c56b6dacabb256c|a39a6df565a58d6c|e4664255c241cc23|2091769869||t20430.9748475121s|s2301112b|2301112|rds|local|vector|||0.177||
 heston_paths|stem|cb7193f263e302f5|3d044ea1775d1ad5|7e9c5265cc69fcb1|1704011943||t20430.9748497094s|s2300581b|2300581|rds|local|vector|||0.103||
 gbm_paths|stem|cf8e889eefe453b4|e25c3be1dd77df3f|e35e7501b61e2cf8|-1127886409||t20430.9748516905s|s2295159b|2295159|rds|local|vector|||0.08||
+physical_history|stem|8121b82383b1f9b9|b44586eaa1785b55|2c45642a019aa9d5|-1007331403||t20431.4720039952s|s1955b|1955|rds|local|vector|||0.563||
+arima_model|stem|f4626f52396ca629|c903347ab6a75dac|66d13f9b17e869ca|-1435768011||t20431.4741121036s|s2476b|2476|rds|local|vector|||0.022||
+sim_heston_data|stem|cb7193f263e302f5|3d044ea1775d1ad5|7e9c5265cc69fcb1|-2095348219||t20431.4741154539s|s2300581b|2300581|rds|local|vector|||0.198||
+sim_svjd_data|stem|6c56b6dacabb256c|a39a6df565a58d6c|e4664255c241cc23|-604859303||t20431.4741177576s|s2301112b|2301112|rds|local|vector|||0.1||
+rn_paths|stem|fbbbd6808b6cd731|fc424f508ec781e8|2a1e97e9d7af4a5c|842752238||t20431.4741185093s|s464784b|464784|rds|local|vector|||0.039||
+plot_heston|stem|bbf8d2cbc82dfebf|f0bac600888b7d0e|5b9706c22c77ecf4|-641841193||t20431.4741246786s|s11789922b|11789922|rds|local|vector|||0.035||
+option_price|stem|3d485ede52880d37|d12a5f7b2770259c|0be7be44ae5bbcb0|1272178502||t20431.4741249557s|s145b|145|rds|local|vector|||0.005||
+sim_gbm|function|93223c1fc99f8f9b
+price_european_option|function|817d65176e7f2932
+plot_simulations|function|788ae70bf07f9c75
+fit_arima_returns|function|5eff406f4fdf6550
+update.packages|function|30d2377eab38636a
+sim_svjd|function|b70bc6c9db86c117
+generate_risk_neutral_paths|function|422eb945a8c8c949
+install.packages|function|e3b0a9d56d54eeba
+remove.packages|function|e5e5ba52f888863b
+sim_heston|function|091acdeec66d3c06
+risk_neutral_report|stem||d726b66d35de54df|0eb279d614262182|1469451092||t20431.474815766s||0|file|local|vector|||2.472||! Error running quarto CLI from R. Caused by error: ✖ Error returned by quarto CLI. ℹ Rerun with `quiet = FALSE` to see the full error message. Caused by error: ! System command 'quarto' failed

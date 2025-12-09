@@ -22,5 +22,7 @@ Suggests:
     dplyr,
     ggplot2,
     ahead,
-    quarto
+    quarto,
+    testthat (>= 3.0.0)
 VignetteBuilder: knitr, quarto
+Config/testthat/edition: 3

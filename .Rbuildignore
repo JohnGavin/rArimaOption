@@ -13,3 +13,9 @@
 ^misc\.json$
 ^esgtoolkit\.json$
 ^ahead\.json$
+^default\.R$
+^packages\.R$
+^default_dev\.sh$
+^PLAN_.*\.md$
+^WIKI\.md$
+^dev$
