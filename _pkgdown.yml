@@ -1,0 +1,21 @@
+url: https://JohnGavin.github.io/rArimaOption
+template:
+  bootstrap: 5
+reference:
+  - title: Simulation
+    desc: Functions for simulating stock paths
+    contents:
+      - sim_gbm
+      - sim_heston
+      - sim_svjd
+  - title: Pricing & Risk Neutralization
+    desc: Option pricing and risk neutral transformation
+    contents:
+      - price_european_option
+      - generate_risk_neutral_paths
+      - fit_arima_returns
+      - plot_simulations
+navbar:
+  structure:
+    left:  [intro, reference, articles, tutorials, news]
+    right: [search, github]
