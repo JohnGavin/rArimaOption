@@ -113,13 +113,22 @@ list(
 
   # 5. Report
   tar_target(
-    risk_neutral_report_html,
+    risk_neutral_report_output,
     {
-      quarto::quarto_render(
-        input = "vignettes/risk_neutral_pricing.qmd",
-        output_format = "html",
-        output_dir = "inst/doc"
+      # Ensure inst/doc directory exists
+      if (!dir.exists("inst/doc")) {
+        dir.create("inst/doc")
+      }
+      
+      # Render the Quarto document. It will output to the same directory.
+      quarto::quarto_render(input = "vignettes/risk_neutral_pricing.qmd")
+      
+      # Move the rendered HTML to inst/doc
+      file.rename(
+        from = "vignettes/risk_neutral_pricing.html",
+        to = "inst/doc/risk_neutral_pricing.html"
       )
+      
       "inst/doc/risk_neutral_pricing.html" # Return path to rendered file
     },
     format = "file"
