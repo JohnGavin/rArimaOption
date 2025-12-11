@@ -6,6 +6,7 @@ format: html
 ```{r setup, include=FALSE}
 library(targets)
 library(ggplot2)
+library(forecast)
 # library(rArimaOption) # Package not installed yet
 devtools::load_all()
 tar_config_set(store = "../_targets") 
