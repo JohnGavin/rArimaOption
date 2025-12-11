@@ -1,0 +1,109 @@
+name: targets + pkgdown (Automated)
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+permissions:
+  contents: write   # For pushing commits
+  pages: write      # For deploying to GitHub Pages
+  id-token: write   # For GitHub Pages deployment
+
+jobs:
+  targets-pkgdown:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Setup R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+          r-version: 'release'
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends \
+            libcurl4-openssl-dev \
+            libssl-dev \
+            libxml2-dev \
+            libfontconfig1-dev \
+            libharfbuzz-dev \
+            libfribidi-dev \
+            libfreetype6-dev \
+            libpng-dev \
+            libtiff5-dev \
+            libjpeg-dev \
+            libgit2-dev \
+            libgdal-dev \
+            libgeos-dev \
+            libproj-dev \
+            libudunits2-dev
+
+      - name: Setup R dependencies
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: |
+            any::targets
+            any::tarchetypes
+            any::quarto
+            any::pkgdown
+            any::rmarkdown
+            any::forecast
+            any::esgtoolkit
+            local::.
+          needs: website
+
+      - name: Run targets pipeline (renders vignettes + installs package)
+        run: Rscript -e 'targets::tar_make()'
+
+      - name: Build pkgdown site (Native R environment)
+        # We run this explicitly because it was skipped in targets to avoid Nix issues
+        # In this Native R environment, it should work fine
+        run: Rscript -e 'pkgdown::build_site()'
+
+      - name: Commit pre-built vignettes and pkgdown site
+        if: github.event_name != 'pull_request'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Stage outputs
+          # We commit docs/ because we are deploying it via gh-pages branch in this workflow
+          # OR we can use the deploy-pages action which uploads artifacts.
+          # randomwalk uses upload-pages-artifact.
+          # The wiki suggests committing docs/ OR deploying.
+          # Committing docs/ to main is useful for history but bloats repo.
+          # Ignoring docs/ and deploying artifacts is cleaner.
+          # BUT the wiki "Complete Guide" creates a commit for docs/.
+          # Let's follow the wiki for now to match the user's request for "similar to randomwalk"?
+          # Randomwalk DOES NOT commit docs/. It uploads artifact.
+          # So I will NOT commit docs/. I will only commit inst/doc (vignettes).
+          
+          git add inst/doc/*.html || true
+
+          # Only commit if there are changes
+          if ! git diff --staged --quiet; then
+            git commit -m "AUTO: Update pre-built vignettes [skip ci]"
+            git push
+          else
+            echo "No changes to commit"
+          fi
+
+      - name: Upload pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'docs'
+
+      - name: Deploy to GitHub Pages
+        if: github.event_name != 'pull_request'
+        uses: actions/deploy-pages@v4
