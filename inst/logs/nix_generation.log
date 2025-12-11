@@ -1,0 +1,81 @@
+INFO [2025-12-11 20:41:26] Starting nix file generation
+INFO [2025-12-11 20:41:55] Starting nix file generation
+INFO [2025-12-11 20:41:55] === Starting nix file generation ===
+INFO [2025-12-11 20:41:55] Using nixpkgs revision: 1482d00f8f658fd443526febba6c9fd9754cb356
+INFO [2025-12-11 20:41:55] Generating package.nix
+INFO [2025-12-11 20:42:15] Starting nix file generation
+INFO [2025-12-11 20:42:15] === Starting nix file generation ===
+INFO [2025-12-11 20:42:15] Using nixpkgs revision: 1482d00f8f658fd443526febba6c9fd9754cb356
+INFO [2025-12-11 20:42:15] Generating package.nix
+INFO [2025-12-11 20:44:22] Starting nix file generation
+INFO [2025-12-11 20:44:22] === Starting nix file generation ===
+INFO [2025-12-11 20:44:22] Using nixpkgs revision: 1482d00f8f658fd443526febba6c9fd9754cb356
+INFO [2025-12-11 20:44:22] Generating package.nix
+INFO [2025-12-11 20:47:59] Starting nix file generation
+INFO [2025-12-11 20:47:59] === Starting nix file generation ===
+INFO [2025-12-11 20:47:59] Using nixpkgs revision: 1482d00f8f658fd443526febba6c9fd9754cb356
+INFO [2025-12-11 20:47:59] Generating package.nix
+INFO [2025-12-11 20:48:20] Starting nix file generation
+INFO [2025-12-11 20:48:20] === Starting nix file generation ===
+INFO [2025-12-11 20:48:20] Using nixpkgs revision: 1482d00f8f658fd443526febba6c9fd9754cb356
+INFO [2025-12-11 20:48:20] Generating package.nix
+INFO [2025-12-11 20:48:48] Starting nix file generation
+INFO [2025-12-11 20:48:48] === Starting nix file generation ===
+INFO [2025-12-11 20:48:48] Using nixpkgs revision: 1482d00f8f658fd443526febba6c9fd9754cb356
+INFO [2025-12-11 20:48:48] Generating package.nix
+INFO [2025-12-11 20:49:26] Starting nix file generation
+INFO [2025-12-11 20:49:26] === Starting nix file generation ===
+INFO [2025-12-11 20:49:26] Using nixpkgs revision: 1482d00f8f658fd443526febba6c9fd9754cb356
+INFO [2025-12-11 20:49:26] Generating package.nix
+INFO [2025-12-11 20:49:26] Generated package.nix
+INFO [2025-12-11 20:49:26] Generating default-ci.nix
+INFO [2025-12-11 20:49:31] Renamed default.nix to default-ci.nix
+INFO [2025-12-11 20:49:31] Generated default-ci.nix with rix::rix()
+INFO [2025-12-11 20:49:31] Creating default.nix symlink
+INFO [2025-12-11 20:49:31] Created default.nix -> default-ci.nix symlink
+INFO [2025-12-11 20:49:31] === Generated files ===
+INFO [2025-12-11 20:49:31] ✓ package.nix
+INFO [2025-12-11 20:49:31] ✓ default-ci.nix
+INFO [2025-12-11 20:49:31] ✓ default.nix
+INFO [2025-12-11 20:49:31] === Nix file generation complete ===
+INFO [2025-12-11 20:49:31] Next steps:
+INFO [2025-12-11 20:49:31] 1. Review generated files
+INFO [2025-12-11 20:49:31] 2. Test locally: nix-build package.nix
+INFO [2025-12-11 20:49:31] 3. Push to cachix: ../push_to_cachix.sh
+INFO [2025-12-11 20:49:31] 4. Commit and push to GitHub
+INFO [2025-12-11 20:52:31] Starting nix file generation
+INFO [2025-12-11 20:52:31] === Starting nix file generation ===
+INFO [2025-12-11 20:52:31] Using nixpkgs revision: 1482d00f8f658fd443526febba6c9fd9754cb356
+INFO [2025-12-11 20:52:31] Generating package.nix
+INFO [2025-12-11 20:53:46] Starting nix file generation
+INFO [2025-12-11 20:53:46] === Starting nix file generation ===
+INFO [2025-12-11 20:53:46] Using nixpkgs revision: 1482d00f8f658fd443526febba6c9fd9754cb356
+INFO [2025-12-11 20:53:46] Generating package.nix
+INFO [2025-12-11 20:53:46] Generated package.nix
+INFO [2025-12-11 20:53:46] Generating default-ci.nix
+INFO [2025-12-11 20:53:50] Renamed default.nix to default-ci.nix
+INFO [2025-12-11 20:53:50] Generated default-ci.nix with rix::rix()
+INFO [2025-12-11 20:53:50] Creating default.nix symlink
+INFO [2025-12-11 20:53:50] Created default.nix -> default-ci.nix symlink
+INFO [2025-12-11 20:53:50] === Generated files ===
+INFO [2025-12-11 20:53:50] ✓ package.nix
+ERROR [2025-12-11 20:53:50] ✗ default-ci.nix - MISSING
+ERROR [2025-12-11 20:53:50] ✗ default.nix - MISSING
+INFO [2025-12-11 20:53:50] === Nix file generation complete ===
+INFO [2025-12-11 20:53:50] Next steps:
+INFO [2025-12-11 20:53:50] 1. Review generated files
+INFO [2025-12-11 20:53:50] 2. Test locally: nix-build package.nix
+INFO [2025-12-11 20:53:50] 3. Push to cachix: ../push_to_cachix.sh
+INFO [2025-12-11 20:53:50] 4. Commit and push to GitHub
+INFO [2025-12-11 20:55:32] Starting nix file generation
+INFO [2025-12-11 20:55:32] Generating package.nix
+INFO [2025-12-11 20:55:32] Generated package.nix
+INFO [2025-12-11 20:55:32] Generating default-ci.nix
+INFO [2025-12-11 20:56:15] Starting nix file generation
+INFO [2025-12-11 20:56:15] Generating package.nix
+INFO [2025-12-11 20:56:15] Generated package.nix
+INFO [2025-12-11 20:56:15] Generating default-ci.nix
+INFO [2025-12-11 20:56:54] Starting nix file generation
+INFO [2025-12-11 20:56:54] Generating package.nix
+INFO [2025-12-11 20:56:54] Generated package.nix
+INFO [2025-12-11 20:56:54] Generating default-ci.nix
