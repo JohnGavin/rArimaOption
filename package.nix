@@ -6,12 +6,12 @@ pkgs.rPackages.buildRPackage {
 
   propagatedBuildInputs = with pkgs.rPackages; [
     esgtoolkit
+    forecast
   ];
 
   nativeBuildInputs = with pkgs.rPackages; [
     knitr
     rmarkdown
-    forecast
     targets
     tarchetypes
     dplyr
