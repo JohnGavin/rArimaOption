@@ -181,6 +181,35 @@ list(
     },
     format = "file"
   ),
+  
+  # Build pkgdown site (depends on vignette HTMLs)
+  tar_target(
+    pkgdown_site,
+    {
+      # Dependencies on all rendered vignettes
+      risk_neutral_report_output
+      pricing_methods_output
+      risk_neutral_transformation_output
+      simulations_output
+
+      # Clean docs/ directory
+      if (dir.exists("docs")) {
+        message("Removing docs/ directory")
+        unlink("docs", recursive = TRUE)
+      }
+
+      # Build site
+      pkgdown::build_site(
+        pkg = ".",
+        preview = FALSE,
+        install = FALSE,
+        new_process = FALSE
+      )
+
+      "docs" # Return the path to the docs directory
+    },
+    format = "file"
+  ),
 
   # ============================================================================
   # Verification / Plots
