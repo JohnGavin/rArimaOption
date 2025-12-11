@@ -1,8 +1,8 @@
 library(targets)
 library(tarchetypes)
 
-# Source R functions
-tar_source("R/")
+# Source R functions (explicitly to avoid sourcing setup scripts)
+tar_source(c("R/plotting.R", "R/pricing.R", "R/risk_neutral.R", "R/simulate.R"))
 
 tar_option_set(
   packages = c("dplyr", "ggplot2", "esgtoolkit", "ahead", "forecast")
