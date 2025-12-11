@@ -74,16 +74,14 @@ let
     LC_MEASUREMENT = "en_US.UTF-8";
     
     buildInputs = [ rpkgs system_packages ];
-    shellHook = "
-mkdir -p $HOME/.config/positron
+    shellHook = "mkdir -p $HOME/.config/positron
 mkdir -p $HOME/.R/library
-echo "R_LIBS_USER=$HOME/.R/library" >> $HOME/.Renviron
+echo R_LIBS_USER=$HOME/.R/library >> $HOME/.Renviron
 
 # Optional: Setup Positron/RStudio wrapper if needed (simplified from existing default.nix)
 export R_MAKEVARS_USER=/dev/null
 unset CI
-printf "Environment loaded.\n"
-";
+echo Environment loaded.";
   }; 
 in
   {
