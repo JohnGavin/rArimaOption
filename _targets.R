@@ -114,7 +114,8 @@ list(
   # 5. Report
   tar_quarto(
     risk_neutral_report,
-    "vignettes/risk_neutral_pricing.qmd"
+    "vignettes/risk_neutral_pricing.qmd",
+    output_dir = "inst/doc"
   ),
 
   # ============================================================================
