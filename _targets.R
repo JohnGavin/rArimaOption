@@ -192,8 +192,17 @@ list(
       risk_neutral_transformation_output
       simulations_output
 
+      # Setup local library for installation
+      local_lib <- "dev/library"
+      if (!dir.exists(local_lib)) {
+        dir.create(local_lib, recursive = TRUE)
+      }
+      
+      # Add local lib to path
+      .libPaths(c(local_lib, .libPaths()))
+
       # Install the package locally so pkgdown can load it
-      devtools::install(upgrade = "never", quick = TRUE)
+      devtools::install(lib = local_lib, upgrade = "never", quick = TRUE)
 
       # Clean docs/ directory
       if (dir.exists("docs")) {
