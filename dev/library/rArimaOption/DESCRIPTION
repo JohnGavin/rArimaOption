@@ -1,0 +1,19 @@
+Package: rArimaOption
+Title: Option Pricing with ARIMA
+Version: 0.1.0
+Authors@R: 
+    person("John", "Gavin", , "john.gavin@example.com", role = c("aut", "cre"))
+Description: Implements option pricing models (GBM, SVJD, Heston) and ARIMA-based risk neutralization.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Imports: esgtoolkit, forecast
+Remotes: Techtonique/esgtoolkit, Techtonique/ahead
+Suggests: knitr, rmarkdown, targets, tarchetypes, dplyr, ggplot2,
+        ahead, quarto, testthat (>= 3.0.0)
+VignetteBuilder: knitr, quarto
+Config/testthat/edition: 3
+Author: John Gavin [aut, cre]
+Maintainer: John Gavin <john.gavin@example.com>
+Built: R 4.5.2; ; 2025-12-11 19:43:53 UTC; unix

@@ -1,0 +1,10 @@
+fit_arima_returns       Fit ARIMA to Price Paths (Log-Returns)
+generate_risk_neutral_paths
+                        Generate Risk-Neutral Paths via Residual
+                        Resampling
+plot_simulations        Plot Simulated Paths
+price_european_option   Price European Option via Monte Carlo
+sim_gbm                 Simulate Geometric Brownian Motion
+sim_heston              Simulate Heston Model
+sim_svjd                Simulate Stochastic Volatility with Jumps
+                        (SVJD)

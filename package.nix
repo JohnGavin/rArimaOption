@@ -7,6 +7,8 @@ pkgs.rPackages.buildRPackage {
   propagatedBuildInputs = with pkgs.rPackages; [
     esgtoolkit
     forecast
+    pkgs.rPackages.esgtoolkit
+    pkgs.rPackages.ahead
   ];
 
   nativeBuildInputs = with pkgs.rPackages; [
