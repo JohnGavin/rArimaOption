@@ -192,6 +192,9 @@ list(
       risk_neutral_transformation_output
       simulations_output
 
+      # Install the package locally so pkgdown can load it
+      devtools::install(upgrade = "never", quick = TRUE)
+
       # Clean docs/ directory
       if (dir.exists("docs")) {
         message("Removing docs/ directory")
