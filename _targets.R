@@ -220,8 +220,7 @@ list(
       message("Skipping pkgdown::build_site() due to Nix/Quarto incompatibility. Vignettes are pre-built in inst/doc.")
 
       "docs" # Return the path to the docs directory
-    },
-    format = "file"
+    }
   ),
 
   # ============================================================================
