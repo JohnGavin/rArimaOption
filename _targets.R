@@ -112,10 +112,17 @@ list(
   ),
 
   # 5. Report
-  tar_quarto(
-    risk_neutral_report,
-    "vignettes/risk_neutral_pricing.qmd",
-    output_dir = "inst/doc"
+  tar_target(
+    risk_neutral_report_html,
+    {
+      quarto::quarto_render(
+        input = "vignettes/risk_neutral_pricing.qmd",
+        output_format = "html",
+        output_dir = "inst/doc"
+      )
+      "inst/doc/risk_neutral_pricing.html" # Return path to rendered file
+    },
+    format = "file"
   ),
 
   # ============================================================================
