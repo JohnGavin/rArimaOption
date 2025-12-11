@@ -13,7 +13,7 @@ list(
   # Infrastructure: Nix Environment Management
   # ============================================================================
   tar_target(description_file, "DESCRIPTION", format = "file"),
-  tar_target(maintain_script, "R/setup/maintain_env.R", format = "file"),
+  tar_target(maintain_script, "../../R/setup/maintain_env.R", format = "file"),
 
   tar_target(
     nix_env_update,
@@ -24,7 +24,7 @@ list(
       
       # Run the script to generate default.nix and packages.R
       # We source the script locally to ensure we have the function
-      source("R/setup/maintain_env.R")
+      source("../../R/setup/maintain_env.R")
       maintain_env()
       
       # Return the paths to the generated files
