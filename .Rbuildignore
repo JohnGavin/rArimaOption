@@ -20,3 +20,4 @@
 ^PLAN_.*\.md$
 ^WIKI\.md$
 ^dev$
+^vignettes/
