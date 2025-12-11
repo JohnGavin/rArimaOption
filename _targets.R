@@ -12,24 +12,25 @@ list(
   # ============================================================================
   # Infrastructure: Nix Environment Management
   # ============================================================================
+  tar_target(description_file, "DESCRIPTION", format = "file"),
+  tar_target(maintain_script, "R/setup/maintain_env.R", format = "file"),
+
   tar_target(
     nix_env_update,
     {
-      # Dependencies:
-      # - DESCRIPTION file
-      # - R/setup/maintain_env.R script
-      # - default.R script
-      file.mtime("DESCRIPTION") # Depend on DESCRIPTION modification time
-      file.mtime("R/setup/maintain_env.R") # Depend on script modification time
-      file.mtime("default.R") # Depend on script modification time
-
+      # Dependencies
+      description_file
+      maintain_script
+      
       # Run the script to generate default.nix and packages.R
-      source("default.R")
-
-      # Return a value that indicates success or the content of default.nix
-      # This ensures targets recognizes it as a valid output
-      readLines("default.nix")
-    }
+      # We source the script locally to ensure we have the function
+      source("R/setup/maintain_env.R")
+      maintain_env()
+      
+      # Return the paths to the generated files
+      c("default.nix", "packages.R")
+    },
+    format = "file"
   ),
 
   # ============================================================================

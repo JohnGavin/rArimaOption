@@ -1,26 +1,32 @@
-# Setup log for Issue #3 (Infrastructure & Reproducibility)
-library(usethis)
-library(gert)
-library(gh)
+# R/setup/issue_3_infrastructure.R
+# Log for Issue #3: Infrastructure & Reproducibility
+# 2025-12-11
 
-# 1. Create GitHub Issue
-# gh::gh("POST /repos/JohnGavin/rArimaOption/issues", title = "Group 2: Infrastructure & Reproducibility", body = "Tasks:\n- [ ] Fix \$HOME Artifact Bug\n- [ ] Create environment sync script (maintain_env.R)\n- [ ] Automate Nix generation (update default.R)\n- [ ] Integrate Nix generation with targets pipeline")
+# 1. Branch created
+# usethis::pr_init("fix-issue-3-infrastructure")
 
-# 2. Create Development Branch
-# usethis::pr_init("infrastructure-setup-issue-3")
+# 2. Fixed R/setup/maintain_env.R
+# - Updated to correctly extract dependencies from DESCRIPTION
+# - Fixed shell_hook escaping to prevent $HOME artifact bug (Issue #9 ref)
+# - Removed git_pkgs manual definition as packages are in rstats-on-nix
+# - Updated rix call to use ide = "none"
 
-# 3. Make Changes: Fix $HOME Artifact Bug
-# replace(file_path = "/Users/johngavin/docs_gh/claude_rix/finance/cts_gbm_stoc_vol/.Rbuildignore",
-#         instruction = "Add pattern to .Rbuildignore to ignore the .config/positron directory created by the nix shellHook.",
-#         new_string = "^.*\.json$
-^\.config/positron/",
-#         old_string = "^.*\.json$")
+# 3. Updated default.R
+# - Sources R/setup/maintain_env.R
 
-# 4. Make Changes: Create environment sync script R/setup/maintain_env.R
-# (See content in R/setup/maintain_env.R)
+# 4. Updated _targets.R
+# - Added file tracking for DESCRIPTION and maintain_env.R
+# - Refactored nix_env_update target
 
-# 5. Make Changes: Automate Nix Generation (Update default.R)
-# (See content in default.R)
+# 5. Generated environment files
+# source("R/setup/maintain_env.R")
+# maintain_env()
+# # Generated packages.R and default.nix
 
-# Attempted to run maintain_env() to generate packages.R and default.nix, but failed because 'rix' package was not found in the current environment.
-# Error: could not find function "rix"
+# 6. Verification
+# - default.nix contains correct shellHook (mkdir -p $HOME)
+# - default.nix contains required packages (ahead, esgtoolkit)
+
+# 7. Next Steps:
+# - Commit and Push
+# - PR
