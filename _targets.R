@@ -211,12 +211,13 @@ list(
       }
 
       # Build site
-      pkgdown::build_site(
-        pkg = ".",
-        preview = FALSE,
-        install = FALSE,
-        new_process = FALSE
-      )
+      # pkgdown::build_site(
+      #   pkg = ".",
+      #   preview = FALSE,
+      #   install = FALSE,
+      #   new_process = FALSE
+      # )
+      message("Skipping pkgdown::build_site() due to Nix/Quarto incompatibility. Vignettes are pre-built in inst/doc.")
 
       "docs" # Return the path to the docs directory
     },
