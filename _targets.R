@@ -133,6 +133,54 @@ list(
     },
     format = "file"
   ),
+  
+  tar_target(
+    pricing_methods_output,
+    {
+      if (!dir.exists("inst/doc")) {
+        dir.create("inst/doc")
+      }
+      quarto::quarto_render(input = "vignettes/pricing_methods.qmd")
+      file.rename(
+        from = "vignettes/pricing_methods.html",
+        to = "inst/doc/pricing_methods.html"
+      )
+      "inst/doc/pricing_methods.html"
+    },
+    format = "file"
+  ),
+  
+  tar_target(
+    risk_neutral_transformation_output,
+    {
+      if (!dir.exists("inst/doc")) {
+        dir.create("inst/doc")
+      }
+      quarto::quarto_render(input = "vignettes/risk_neutral_transformation.qmd")
+      file.rename(
+        from = "vignettes/risk_neutral_transformation.html",
+        to = "inst/doc/risk_neutral_transformation.html"
+      )
+      "inst/doc/risk_neutral_transformation.html"
+    },
+    format = "file"
+  ),
+  
+  tar_target(
+    simulations_output,
+    {
+      if (!dir.exists("inst/doc")) {
+        dir.create("inst/doc")
+      }
+      quarto::quarto_render(input = "vignettes/simulations.qmd")
+      file.rename(
+        from = "vignettes/simulations.html",
+        to = "inst/doc/simulations.html"
+      )
+      "inst/doc/simulations.html"
+    },
+    format = "file"
+  ),
 
   # ============================================================================
   # Verification / Plots
