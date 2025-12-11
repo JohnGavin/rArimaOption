@@ -19,3 +19,23 @@ navbar:
   structure:
     left:  [intro, reference, articles, tutorials, news]
     right: [search, github]
+articles:
+  - title: "Pricing Methods"
+    navbar: ~
+    contents:
+      - pricing_methods
+  - title: "Risk Neutral Pricing"
+    navbar: ~
+    contents:
+      - risk_neutral_pricing
+  - title: "Risk Neutral Transformation"
+    navbar: ~
+    contents:
+      - risk_neutral_transformation
+  - title: "Simulations"
+    navbar: ~
+    contents:
+      - simulations
+development:
+  build_articles: false
+
