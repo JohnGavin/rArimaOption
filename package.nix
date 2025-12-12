@@ -93,6 +93,7 @@ pkgs.rPackages.buildRPackage rec {
 
   propagatedBuildInputs = with pkgs.rPackages; [
     forecast
+    fpp
   ] ++ [
     esgtoolkit
   ];
