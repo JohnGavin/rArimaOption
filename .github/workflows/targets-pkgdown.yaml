@@ -59,7 +59,8 @@ jobs:
             any::pkgdown
             any::rmarkdown
             any::forecast
-            any::esgtoolkit
+            github::Techtonique/esgtoolkit
+            github::Techtonique/ahead
             local::.
           needs: website
 
